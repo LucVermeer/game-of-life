@@ -54,29 +54,29 @@ struct grid *grid_init () {
 
 void print_grid(struct grid *g) {
     if (g->height < (g->y_pos + g->y_span)) {
-      printf("Viewport out of bounds\n");
+      cout << "Viewport out of bounds\n";
       return;
     }
     if (g->width < (g->x_pos + g->x_span)) {
-      printf("Viewport out of bounds\n");
+      cout << "Viewport out of bounds\n";
       return;
     }
 
     for (size_t x = g->x_pos; x < (g->x_pos + g->x_span); x++) {
-      printf("__");
+      cout << "__";
     }
-    printf("\n");
+    cout << "\n";
     for (size_t y = g->y_pos; y < (g->y_pos + g->y_span); y++) {
       for (size_t x = g->x_pos; x < (g->x_pos + g->x_span); x++) {
         int value = g->array[y][x];
         if (!value) {
-          printf("%c",g->dead_cell);
+          cout << g->dead_cell;
         } else {
-          printf("%c",g->live_cell);
+          cout << g->live_cell;
         }
-        printf(" ");
+        cout << " ";
       }
-      printf("\n");
+      cout << "\n";
     }
   }
 
